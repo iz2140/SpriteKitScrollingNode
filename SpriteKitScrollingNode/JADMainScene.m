@@ -11,10 +11,11 @@
 #import "JADViewController.h"
 
 
+
 @interface JADMainScene()
 
 @property (nonatomic, strong) JADSKScrollingNode* scrollingNode;
-
+//@property (nonatomic, strong) UITapGestureRecognizer* tapGestureRecognizer;
 @end
 
 @implementation JADMainScene
@@ -23,32 +24,40 @@
     if (self = [super initWithSize:size]) {
         
         _scrollingNode = [[JADSKScrollingNode alloc] initWithSize:size];
-        _scrollingNode.position = CGPointMake(0, 0);
+        self.scrollingNode.position = CGPointMake(0, 0);
         
-        [self addChild:_scrollingNode];
+        NSLog(@"{%f, %f}", self.scrollingNode.size.width, self.scrollingNode.size.height);
+        
+        [self addChild:self.scrollingNode];
         
         SKLabelNode *topLabelNode = [[SKLabelNode alloc] init];
-        topLabelNode.text = @"Top";
-        topLabelNode.position = CGPointMake(50, 2000-50);
+        topLabelNode.text= @"Top"; //iOS 8 specific
+        
         
         SKLabelNode *bottomLabelNode = [[SKLabelNode alloc] init];
         bottomLabelNode.text = @"Bottom";
         bottomLabelNode.position = CGPointMake(50, 50);
         
-        SKSpriteNode *node1 = [[SKSpriteNode alloc] initWithColor:[UIColor redColor] size:CGSizeMake(800, 450)];
+        SKSpriteNode *node1 = [[SKSpriteNode alloc] initWithColor:[UIColor redColor] size:CGSizeMake(CGRectGetWidth(self.frame)*.8, CGRectGetHeight(self.frame)/2)];
         SKSpriteNode *node2 = [node1 copy];
         SKSpriteNode *node3 = [node1 copy];
         
         
-        node1.position = CGPointMake(512, 500);
-        node2.position = CGPointMake(512, 1000);
-        node3.position = CGPointMake(512, 1500);
+        
+        node1.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+        node2.position = CGPointMake(node1.position.x, node1.position.y + CGRectGetWidth(node1.frame)/2);
+        node3.position = CGPointMake(node1.position.x, node2.position.y + CGRectGetWidth(node1.frame)/2);
+        
+        topLabelNode.position = CGPointMake(CGRectGetWidth(topLabelNode.frame)/2 + 50, node3.position.y + CGRectGetHeight(node1.frame)/2);
         
         [_scrollingNode addChild:topLabelNode];
         [_scrollingNode addChild:bottomLabelNode];
         [_scrollingNode addChild:node1];
         [_scrollingNode addChild:node2];
         [_scrollingNode addChild:node3];
+        
+        NSLog(@"{%f, %f}", self.scrollingNode.size.width, self.scrollingNode.size.height);
+        NSLog(@"{%f, %f}", [self.scrollingNode calculateAccumulatedFrame].size.width, [self.scrollingNode calculateAccumulatedFrame].size.height);
         
         
         
@@ -81,6 +90,7 @@
     CGPoint location = [touch locationInNode:self];
     SKNode *touchedNode = [self nodeAtPoint:location];
     NSString* nodeName = touchedNode.name;
+    NSLog(@"{%f, %f}", location.x, location.y);
     if ([touchedNode isKindOfClass:[SKSpriteNode class]]) {
         SKAction *blueAction = [SKAction colorizeWithColor:[UIColor blueColor] colorBlendFactor:1 duration:.5];
         SKAction *redAction = [SKAction colorizeWithColor:[UIColor redColor] colorBlendFactor:1 duration:.5];
