@@ -9,6 +9,7 @@
 #import "JADViewController.h"
 #import "JADMainScene.h"
 #import "JADPartScrollingScene.h"
+#import "JADVerticalMenuScene.h"
 
 #import <SpriteKit/SpriteKit.h>
 
@@ -16,7 +17,7 @@
 
 @property (nonatomic, strong) JADMainScene* mainScene;
 @property (nonatomic, strong) JADPartScrollingScene* partScrollingScreen;
-
+//@property (nonatomic, strong) JADVerticalMenuScene *verticalMenuScehe;
 @end
 
 
@@ -50,8 +51,13 @@
     _partScrollingScreen.viewController = self;
     _partScrollingScreen.scaleMode = SKSceneScaleModeAspectFill;
     
+    JADVerticalMenuScene *verticalMenuScehe = [[JADVerticalMenuScene alloc] initWithSize: skView.bounds.size];
+    //[skView presentScene:verticalMenuScehe];
+    
+    
+    
+    
     [self presentFullScrollingScene];
-    //[self presentCropDemoScene];
 }
 
 
@@ -60,11 +66,17 @@
     SKView* skView = (SKView*)self.view;
     [skView presentScene:_mainScene];
 }
+
 -(void)presentPartScrollingScene
 {
     
     SKView* skView = (SKView*)self.view;
     [skView presentScene:_partScrollingScreen];
+}
+
+-(void)presentVerticalMenuScene{
+
+
 }
 
 - (void)didReceiveMemoryWarning

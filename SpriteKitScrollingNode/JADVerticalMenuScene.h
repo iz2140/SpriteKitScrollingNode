@@ -9,5 +9,5 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface JADVerticalMenuScene : SKScene
-
+@property UITapGestureRecognizer *tapGestureRecognizer;
 @end

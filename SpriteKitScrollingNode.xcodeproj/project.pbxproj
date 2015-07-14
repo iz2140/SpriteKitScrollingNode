@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032A9F9B1B4F1E7400A5A5BD /* JADVerticalMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 032A9F9A1B4F1E7400A5A5BD /* JADVerticalMenuScene.m */; };
 		BD72022C19832DCE00DB4AB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD72022B19832DCE00DB4AB1 /* Foundation.framework */; };
 		BD72022E19832DCE00DB4AB1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD72022D19832DCE00DB4AB1 /* CoreGraphics.framework */; };
 		BD72023019832DCE00DB4AB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD72022F19832DCE00DB4AB1 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		032A9F991B4F1E7400A5A5BD /* JADVerticalMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JADVerticalMenuScene.h; sourceTree = "<group>"; };
+		032A9F9A1B4F1E7400A5A5BD /* JADVerticalMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADVerticalMenuScene.m; sourceTree = "<group>"; };
 		BD72022819832DCE00DB4AB1 /* SpriteKitScrollingNode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpriteKitScrollingNode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD72022B19832DCE00DB4AB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BD72022D19832DCE00DB4AB1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,6 +130,8 @@
 				BD72026119832F8E00DB4AB1 /* JADMainScene.m */,
 				BDB4182619A0281E006FA7E1 /* JADPartScrollingScene.h */,
 				BDB4182719A0281E006FA7E1 /* JADPartScrollingScene.m */,
+				032A9F991B4F1E7400A5A5BD /* JADVerticalMenuScene.h */,
+				032A9F9A1B4F1E7400A5A5BD /* JADVerticalMenuScene.m */,
 				BD9F8B5919855FFC0098D4C6 /* JADSKScrollingNode.h */,
 				BD9F8B5A19855FFC0098D4C6 /* JADSKScrollingNode.m */,
 				BD72023D19832DCE00DB4AB1 /* Images.xcassets */,
@@ -263,6 +268,7 @@
 				BD72023C19832DCE00DB4AB1 /* JADAppDelegate.m in Sources */,
 				BD9F8B5B19855FFC0098D4C6 /* JADSKScrollingNode.m in Sources */,
 				BD72026219832F8E00DB4AB1 /* JADMainScene.m in Sources */,
+				032A9F9B1B4F1E7400A5A5BD /* JADVerticalMenuScene.m in Sources */,
 				BD72025F19832E7A00DB4AB1 /* JADViewController.m in Sources */,
 				BD72023819832DCE00DB4AB1 /* main.m in Sources */,
 				BDB4182819A0281E006FA7E1 /* JADPartScrollingScene.m in Sources */,

@@ -39,7 +39,7 @@ static const CGFloat kScrollingNodeHeight = 300;
         cropNode.maskNode = maskNode;
         [cropNode addChild:rectNode];
         
-        _scrollingNode = [[JADSKScrollingNode alloc] initWithSize:(CGSize){kScrollingNodeWidth,kScrollingNodeHeight}];
+        _scrollingNode = [[JADSKScrollingNode alloc] initWithSize:(CGSize){0,0}];
         _scrollingNode.position = CGPointMake(kScrollingNodeXPosition, kScrollingNodeYPosition);
         
         [rectNode addChild:_scrollingNode];
@@ -47,11 +47,11 @@ static const CGFloat kScrollingNodeHeight = 300;
         
         SKLabelNode *topLabelNode = [[SKLabelNode alloc] init];
         topLabelNode.text = @"Top";
-        topLabelNode.position = CGPointMake(0, 500-50);
+        topLabelNode.position = CGPointMake(0, 650);
         
         SKLabelNode *bottomLabelNode = [[SKLabelNode alloc] init];
         bottomLabelNode.text = @"Bottom";
-        bottomLabelNode.position = CGPointMake(0, 50);
+        bottomLabelNode.position = CGPointMake(0, 0);
         
         SKSpriteNode *node1 = [[SKSpriteNode alloc] initWithColor:[UIColor redColor] size:CGSizeMake(100, 100)];
         SKSpriteNode *node2 = [node1 copy];

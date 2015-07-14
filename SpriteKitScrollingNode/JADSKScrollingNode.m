@@ -8,7 +8,6 @@
 
 #import "JADSKScrollingNode.h"
 
-
 @interface JADSKScrollingNode()
 
 @property (nonatomic) CGFloat minYPosition;
@@ -30,17 +29,29 @@ static const CGFloat kScrollDuration = .3;
     if (self)
     {
         _size = size;
-        _yOffset = [self calculateAccumulatedFrame].origin.y;
+        
+        //makes a clear node the inititial size of the "whole" size of the scrolling node... this node will take up the space for the size of the "scrolling" node
+        SKSpriteNode *canvasNode = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:size];
+        canvasNode.anchorPoint = CGPointMake(0, 0);
+        canvasNode.position = CGPointMake( 0,0);
+        [self addChild:canvasNode];
+         
+        _yOffset = [self calculateAccumulatedFrame].origin.y; //calculates size of the scrollingNode and sets its yOffset to 0
        
     }
     return self;
     
 }
 
+//overrides addChild
+//yOffset may change after adding a child node to the scrollingNode
 -(void)addChild:(SKNode *)node
 {
     [super addChild:node];
     _yOffset = [self calculateAccumulatedFrame].origin.y;
+    NSLog(@"adding child: %@", node.name);
+    NSLog(@"New yOffset: %f", self.yOffset);
+    
 }
 
 
@@ -48,8 +59,9 @@ static const CGFloat kScrollDuration = .3;
 {
     CGSize parentSize = self.parent.frame.size;
     
+    NSLog(@"accumulatedFrame h: %f, actualSize h: %f, frame h: %f", self.calculateAccumulatedFrame.size.height, self.size.height, self.frame.size.height);
   
-    CGFloat minPosition =(parentSize.height - [self calculateAccumulatedFrame].size.height - _yOffset);
+    CGFloat minPosition =(parentSize.height - self.calculateAccumulatedFrame.size.height - _yOffset); //changed from accumulated frame to actual size
     
     return minPosition;
     
